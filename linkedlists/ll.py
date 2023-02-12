@@ -59,12 +59,11 @@ class LinkedList:
 myList = LinkedList(7)
 myList.insert_at_end(11)
 myList.insert_at_end(18)
+#prints the third value
 print(myList.head.next.next.data)
 myList.remove_at_end()
+#to print all the items in the linked list
 value = myList.head
 while value:
     print (value.data)
-    value = value.next
-
-    
-        
+    value = value.next     
