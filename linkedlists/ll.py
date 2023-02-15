@@ -54,6 +54,32 @@ class LinkedList:
             self.tail = None
         return self
     
+    #insert at the beginning - unshift
+    def insert_at_beginning(self, data):
+        newNode = Node(data)
+        if self.head is None:
+            self.head = newNode
+            self.tail = newNode
+        else:
+            newNode.next = self.head
+            self.head = newNode
+        self.length += 1
+        return self
+    
+    #remove from the beginning - shift
+    def remove_from_beginning(self):
+        temp = self.head
+        if self.head is None:
+            print("The linked list is empty")
+            return
+        self.head = self.head.next
+        self.length -= 1
+        if self.length == 0:
+            self.head = None
+            self.tail = None
+        temp.next = None
+        return self
+    
 
 
 myList = LinkedList(7)
@@ -61,7 +87,7 @@ myList.insert_at_end(11)
 myList.insert_at_end(18)
 #prints the third value
 print(myList.head.next.next.data)
-myList.remove_at_end()
+myList.insert_at_beginning(21)
 #to print all the items in the linked list
 value = myList.head
 while value:
