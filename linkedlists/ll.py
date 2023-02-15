@@ -12,6 +12,7 @@ class LinkedList:
         
         
     #insert at the end - push
+    #note: time complexity is O(1)
     def insert_at_end(self, data):
         #create a new node with the value
         newNode = Node(data)
@@ -29,6 +30,7 @@ class LinkedList:
         return self
     
     #remove at the end - pop
+    #note: time complexity is O(n)
     def remove_at_end(self):
         #check if the list is empty
         if self.head is None:
@@ -55,6 +57,7 @@ class LinkedList:
         return self
     
     #insert at the beginning - unshift
+    #note: time complexity is O(1)
     def insert_at_beginning(self, data):
         newNode = Node(data)
         if self.head is None:
@@ -67,6 +70,7 @@ class LinkedList:
         return self
     
     #remove from the beginning - shift
+    #note: time complexity is O(1)
     def remove_from_beginning(self):
         temp = self.head
         if self.head is None:
