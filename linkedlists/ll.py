@@ -84,14 +84,62 @@ class LinkedList:
         temp.next = None
         return self
     
+    #set method trial
+    #time complexity - O(n)
+    def replace_element(self, old_data, new_data):
+        if self.head is None:
+            raise Exception("the linkedlist is empty")
+        if old_data == new_data:
+            return
+        node = self.head
+        while node is not None:
+            if node.data == old_data:
+                node.data = new_data
+                return
+            node = node.next
+        raise Exception("node not found")
+    
+    #get method trial
+    #time complexity - O(n)
+    def get_element(self, index):
+        if self.head is None:
+            print("the linkedlist is empty")
+        count = 0
+        curr = self.head
+        while curr:
+            if count == index:
+                print(curr.data)
+                return
+            else:
+                count+=1
+                curr = curr.next
+        print("node not found")
+        return self
+        
+        
+    #time complexity - O(n)
+    def middleNode(self):
+        moveByTwo = self.head
+        moveByOne = self.head
+        while moveByTwo and moveByTwo.next:
+            moveByOne = moveByOne.next
+            moveByTwo = moveByTwo.next.next
+        middle = moveByOne
+        while middle:
+            print(middle.data)
+            middle = middle.next
+        return self
+    
 
 
 myList = LinkedList(7)
 myList.insert_at_end(11)
 myList.insert_at_end(18)
+myList.middleNode()
 #prints the third value
 print(myList.head.next.next.data)
 myList.insert_at_beginning(21)
+myList.get_element(0)
 #to print all the items in the linked list
 value = myList.head
 while value:
