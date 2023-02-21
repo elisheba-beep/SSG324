@@ -144,6 +144,21 @@ class LinkedList:
         prev.next = newNode
         self.length += 1
         return self
+    
+
+    #remove
+    def remove_element(self, index):
+        temp = self.get_node(index - 1)
+        if(index == 0):
+            self.remove_from_beginning()
+            return
+        if(index == self.length - 1):
+            self.remove_at_end()
+            return
+        temp.next = temp.next.next
+        
+        self.length -=1
+        return self
         
     #time complexity - O(n)
     def middleNode(self):
