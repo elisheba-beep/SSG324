@@ -116,7 +116,8 @@ class LinkedList:
         print("node not found")
         return self
         
-        
+    #class code
+    #get,set and insert    
     def get_node(self, index):
         if(index < 0 or index >= self.length):
             print("out of bounds")
