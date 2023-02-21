@@ -117,6 +117,33 @@ class LinkedList:
         return self
         
         
+    def get_node(self, index):
+        if(index < 0 or index >= self.length):
+            print("out of bounds")
+            return
+        temp = self.head
+        for i in range(index):
+            temp = temp.next
+
+        
+        return temp
+    
+
+    def set_node(self, index, value):
+        temp = self.get_node(index)
+        temp.data = value
+        return self
+    
+    
+    def insert_element(self, index, value):
+        newNode = Node(value)
+        prev = self.get_node(index - 1)
+        temp = prev.next
+        newNode.next = temp
+        prev.next = newNode
+        self.length += 1
+        return self
+        
     #time complexity - O(n)
     def middleNode(self):
         moveByTwo = self.head
