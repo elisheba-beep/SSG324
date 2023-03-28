@@ -173,6 +173,22 @@ class LinkedList:
             middle = middle.next
         return self
     
+    
+    #reverse
+    def reverse(self):
+        temp = self.head
+        self.head = self.tail
+        self.tail= temp
+        next = temp.next
+        prev = None
+        
+        for i in range(self.length):
+            next= temp.next
+            temp.next = prev
+            prev = temp
+            temp = next
+        return self 
+    
 
 
 myList = LinkedList(7)
