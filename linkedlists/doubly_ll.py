@@ -112,13 +112,13 @@ class DoublyLinkedList:
         node = self.getAtIndex(index - 1)
         temp = node.next
         newNode.next = temp
-        newNode.prev = temp.prev
         node.next = newNode
+        newNode.prev = temp.prev
         
         self.length+=1
         return self
     
-    #remove - incomplete
+    #remove
     def removeAtIndex(self,index):
         node = self.getAtIndex(index - 1)
         if index == 0:
@@ -127,9 +127,27 @@ class DoublyLinkedList:
         if index == self.length-1:
             self.removeFromTheEnd()
             return
+        print(node.data)
         node.next = node.next.next
         self.length-=1
         return self
+    
+    #reverse
+    def reverseList(self):
+        if self.head is None:
+            return
+        curr = self.head
+        self.head = self.tail
+        self.tail = curr
+        prev = None
+        next = curr.next
+        for i in range(self.length):
+            next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        return self
+            
 
         
         
@@ -148,6 +166,9 @@ myDoublyList.removeFromTheBeginning()
 myDoublyList.removeFromTheBeginning()
 myDoublyList.getAtIndex(5)
 myDoublyList.setAtIndex(1,5)
+myDoublyList.addToTheEnd(6)
 myDoublyList.insertAtIndex(1,6)
+myDoublyList.insertAtIndex(2,8)
 myDoublyList.removeAtIndex(2)
+myDoublyList.reverseList()
 myDoublyList.printList()
