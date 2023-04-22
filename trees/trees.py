@@ -52,6 +52,7 @@ class BST:
                     return self
                 temp = temp.right
 
+
     def printTree(self):
         leftValue = self.root.left
         rightValue = self.root.right
@@ -95,6 +96,37 @@ class BST:
         while currentNode.right:
             currentNode = currentNode.right
         return currentNode
+    
+    def traversePreOrder(self, currentNode):
+        print(currentNode.value, end=' ')
+        if currentNode.left:
+            self.traversePreOrder(currentNode.left)
+        if currentNode.right:
+            self.traversePreOrder(currentNode.right)
+    
+    def traversePostOrder(self, currentNode):
+        if currentNode.left:
+            self.traversePostOrder(currentNode.left)
+        if currentNode.right:
+            self.traversePostOrder(currentNode.right)
+        print(currentNode.value, end=' ')
+        
+        
+    def traverseInOrder(self, currentNode):
+        if currentNode.left:
+            self.traverseInOrder(currentNode.left)
+        print(currentNode.value, end=' ')
+        if currentNode.right:
+            self.traverseInOrder(currentNode.right)
+            
+            
+    def traverseReverseOrder(self, currentNode):
+        if currentNode.right:
+            self.traverseReverseOrder(currentNode.right)
+        print(currentNode.value, end=' ')
+        if currentNode.left:
+            self.traverseReverseOrder(currentNode.left)
+        
         
 
 
@@ -104,10 +136,19 @@ tree.insert(18)
 tree.insert(6)
 tree.insert(60)
 tree.insert(4)
-
+tree.insert(7)
+tree.insert(14)
 
 tree.printTree()
+tree.print()
 print(tree.contains(8))
 print(tree.minValueNode(tree.root).value)
 print(tree.maxValueNode(tree.root).value)
+tree.traversePreOrder(tree.root)
+print('')
+tree.traversePostOrder(tree.root)
+print('')
+tree.traverseInOrder(tree.root)
+print('')
+tree.traverseReverseOrder(tree.root)
 
