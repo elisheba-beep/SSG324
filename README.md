@@ -1,2 +1,1 @@
-# SSG324
-## DATA STRUCTURES AND ALGORITHMS
+# data_structures_and_algorithms
