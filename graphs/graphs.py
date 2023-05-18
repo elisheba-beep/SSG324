@@ -46,3 +46,12 @@ myGraph.add_edge("C", "D")
 myGraph.add_edge("A", "E")
 myGraph.add_edge("D", "E")
 print(myGraph.adjacency_list)
+
+n = 2
+edges = [[0, 1], [1, 2], [2, 0]]
+adj_list = {x: [] for x in range(n+1)}
+for u, v in edges:
+    adj_list[u].append(v)
+    adj_list[v].append(u)
+
+print(adj_list)
